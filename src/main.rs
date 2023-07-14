@@ -11,6 +11,7 @@ use std::{
 use serde::Deserialize;
 
 #[derive(Debug, Parser)]
+#[command(author, version, about, long_about = None)]
 struct Args {
     #[clap(long = "public-ip")]
     public_ip: IpAddr,
