@@ -11,7 +11,7 @@ jobs:
     - name: Add musl target
       run:  rustup target add x86_64-unknown-linux-musl
     - name: Build
-      run: cargo build --target x86_64-unknown-linux-musl
+      run: cargo build --release --target x86_64-unknown-linux-musl
     - name: version
       run: echo "::set-output name=version::$(./target/x86_64-unknown-linux-musl/release/iptables-proxy --version)"
       id: version
