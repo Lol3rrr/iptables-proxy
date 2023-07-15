@@ -90,7 +90,11 @@ impl ForwardingRoute {
     }
     fn deregister_args(&self) -> impl Iterator<Item = Vec<Cow<'static, str>>> {
         self.register_args().map(|mut args| {
-            args.insert(0, "-D".into());
+            for arg in args.iter_mut() {
+                if arg == "-I" {
+                    *arg = "-D".into();
+                }
+            }
             args
         })
     }
